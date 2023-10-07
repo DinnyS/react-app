@@ -2,8 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Footer from '../../components/Footer';
 import NavbarNotatHomePage from '../../components/NavNotAtHomePage';
+import { useNavigate } from 'react-router-dom';
 
 function AddData({className}) {
+
+    const navigate = useNavigate();
+
+    function backToHome(){
+        navigate('/Homepage')
+    }
+
+
   return (
     <>
     <NavbarNotatHomePage/>
@@ -67,8 +76,8 @@ function AddData({className}) {
                 </div>
         </div>
             <div className='button_zone'>
-                <button className='btn_Back'><i class="fa-solid fa-caret-left"></i> ย้อนกลับ</button>
-                <button className='btn_Add'><i class="fa-solid fa-user-plus"></i> เพิ่มข้อมูล</button>
+                <button className='btn_Back'onClick={backToHome}><i class="fa-solid fa-caret-left"></i> ย้อนกลับ</button>
+                <button className='btn_Add' ><i class="fa-solid fa-user-plus"></i> เพิ่มข้อมูล</button>
             </div>
         </div>
         <Footer/>

@@ -2,18 +2,21 @@ import React , { useState } from 'react'
 import styled from 'styled-components'
 import Logo from '../../assets/img/WelcomeToHellLogo.png'
 import check from './login_repository'
+import { useNavigate } from 'react-router-dom';
 
 function Login({className}) {
 
     const [username , setUsername] = useState('')
     const [password , setPassword] = useState('')
 
+    const navigate = useNavigate();
+
 
     const handleLogin = () => {
         const user = check(username, password);
     
         if (user) {
-          window.location.href = '/dashboard';
+            navigate('/Homepage');
         } else {
           alert('ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง');
         }

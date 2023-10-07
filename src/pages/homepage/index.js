@@ -3,8 +3,13 @@ import  Navbar  from '../../components/Navbar/index';
 import styled from 'styled-components';
 import dataUser from '../../model/data.json'
 import Footer from '../../components/Footer';
+import { useNavigate } from 'react-router-dom';
+
 
 function Homepage({className}) {
+
+  const navigate = useNavigate();
+
   const [currentPage, setCurrentPage] = useState(1); // หน้าปัจจุบัน
   const itemsPerPage = 5; // จำนวนข้อมูลต่อหน้า
 
@@ -27,6 +32,10 @@ function Homepage({className}) {
       setCurrentPage(currentPage - 1);
     }
   };
+
+  function goTOAddData(){
+    navigate('/AddData');
+  }
 
   return (
     <>
@@ -120,7 +129,7 @@ function Homepage({className}) {
           </button>
         </div>
         <div className='add_btn_container'>
-          <button className='add_data_btn'><i class="fa-solid fa-user-plus"></i> เพิ่มผู้ตกนรก +</button>
+          <button className='add_data_btn' onClick={goTOAddData}><i class="fa-solid fa-user-plus"></i> เพิ่มผู้ตกนรก +</button>
         </div>
       </div>
       <Footer/>
